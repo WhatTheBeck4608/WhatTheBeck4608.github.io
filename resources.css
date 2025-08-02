@@ -1,0 +1,147 @@
+body {
+    background-image: none;
+}
+
+#site_wrap {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns:
+        .25fr 1fr .15fr;
+    grid-gap: 0;
+    grid-template-areas:
+        "menu menu menu"
+        "banner banner banner"
+        "icon intro ."
+        ". resources ."
+        "footer footer footer"
+}
+
+
+.banner {
+    grid-area: banner;
+}
+
+p + h2 {
+     margin-top: 3rem;
+}
+
+.resource_intro {
+    grid-area: intro;
+    margin-bottom: 3rem;
+}
+
+.resource_icon {
+    grid-area: icon;
+    width: clamp(120px, 15vw, 200px);
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 20px;
+    margin-top: 40px;
+    justify-self: center;
+}
+
+.quick_links {
+    line-height: 1.75;
+}
+
+.quick_links a:link{
+    color:#0892a5;
+}
+
+.quick_links a:visited {
+    color:#05686f;
+}
+
+.resources_wrapper{
+    grid-area: resources;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.resources {
+    background-color:#e4dfda;
+    border-radius: 18px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem 2.5rem;
+    border-left: 6px solid #495f77;
+}
+
+.resources h2 {
+    margin-top: 0.5rem;
+    color:#077b84;
+}
+
+.resources h3 {
+    color: #077b84;
+}
+
+.resources p:last-of-type {
+    margin-bottom: 0.5rem;
+}
+
+.resources p + h3,
+.resources ul + h3 {
+    margin-top: 2.5rem;
+}
+
+.resources ul > li {
+    margin-bottom: 0.5rem;
+}
+
+
+#backToTop {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 999;
+    background-color: #ef6b32;
+    color: #fff7f1;
+    border: 1px solid #a9a5a2;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-family: 'Aleo', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#backToTop:hover {
+    background-color: #e4dfda;
+    color: #ef6b32;
+    border: 2px solid #ef6b32;
+    font-weight: 900;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+@media (max-width: 768px) {
+    #site_wrap {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "menu"
+            "banner"
+            "icon"
+            "intro"
+            "resources"
+            "footer";
+    }
+
+    .resource_icon {
+        display: none;
+    }
+
+}
